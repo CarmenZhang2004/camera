@@ -58,10 +58,22 @@ void drawInterface(){
 }
 
 void move(){ 
-  if (akey) eyex = eyex - 10;
-  if (dkey) eyex = eyex + 10;
-  if (wkey) eyez = eyez - 10;
-  if (skey) eyez = eyez + 10;
+  if (akey) {
+    eyex += cos(leftRightAngle - PI/2)*10;
+    eyez += sin(leftRightAngle - PI/2)*10;
+  }
+  if (dkey) {
+    eyex += cos(leftRightAngle + PI/2)*10;
+    eyez += sin(leftRightAngle + PI/2)*10;
+  }
+  if (wkey) {
+    eyex += cos(leftRightAngle)*10;
+    eyez += sin(leftRightAngle)*10;
+  }
+  if (skey) {
+    eyex -= cos(leftRightAngle)*10;
+    eyez -= sin(leftRightAngle)*10;
+  }
   
   focusx = eyex + cos(leftRightAngle)*300;
   focusy = eyey + tan(upDownAngle)*300;
